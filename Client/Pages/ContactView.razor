@@ -1,0 +1,42 @@
+﻿@page "/contact/{Id}"
+<h1>Contact [Id=@Contact.Id] details</h1>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Name</label>
+            <div class="col-sm-8">
+                <label type="text" readonly class="form-control-plaintext">@Contact.Name</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Surname</label>
+            <div class="col-sm-8">
+                <label type="text" readonly class="form-control-plaintext">@Contact.Surname</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Email</label>
+            <div class="col-sm-8">
+                <label type="text" readonly class="form-control-plaintext">@Contact.Email</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Phone</label>
+            <div class="col-sm-8">
+                <label type="text" readonly class="form-control-plaintext">@Contact.Phone</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Category</label>
+            <div class="col-sm-8">
+                <label type="text" readonly class="form-control-plaintext">@Contact.CategoryId</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">SubCategory</label>
+            <div class="col-sm-8">
+                <label type="text" readonly class="form-control-plaintext">@Contact.SubCategory</label>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+﻿@page "/contacts"
+<h1 class="page-title">Contacts</h1>
+
+<!-- the check here rely on the 2 way binding which will automatically detecht
+        when the data has been returned by our class, in our case its static data
+        but when we want to connect to our api to fetch tdata it will be useful -->
+@if (Contacts == null)
+{
+    <p>Loading ...</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Surname</td>
+                <td>Email</td>
+                <td>Phone</td>
+                <td>Category</td>
+                <td>Subcategory</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var contact in Contacts)
+            {
+                <tr>
+                    
+                    <td>@contact.Name</td>
+                    <td>@contact.Surname</td>
+                    <td>@contact.Email</td>
+                    <td>@contact.Phone</td>
+                    @if (contact.CategoryId == 1)
+                    {
+                        <td>
+                            Służbowy
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            Inny
+                        </td>
+                    }
+                    <td>@contact.SubCategory</td>
+                    <td>
+                        <a href="@($"contact/{contact.Id}")" class="btn btn-primary">
+                            Details
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

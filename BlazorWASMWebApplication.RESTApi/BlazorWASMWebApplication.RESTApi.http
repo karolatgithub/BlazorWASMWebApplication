@@ -1,0 +1,6 @@
+@BlazorWASMWebApplication.RESTApi_HostAddress = http://localhost:5241
+
+GET {{BlazorWASMWebApplication.RESTApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
