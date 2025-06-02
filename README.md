@@ -6,7 +6,7 @@
 dotnet new blazorwasm --hosted -o BlazorWASMWebApplication
 ```
 
-## utworzenie bazy danych postgresql
+## utworzenie bazy danych postgresql i uruchomienie na porcie 5432 na lokalnej maszynie
 
 ```
 SET SEARCH_PATH TO public;
@@ -67,4 +67,4 @@ VALUES(1,'Szef');
 dotnet run
 ```
 
-## i nastepne mozna uruchomic aplkacje webowa BlazorWASMWebApplication.Client
+## i nastepne mozna uruchomic aplikacje webowa BlazorWASMWebApplication.Client
