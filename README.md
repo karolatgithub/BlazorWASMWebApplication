@@ -60,16 +60,10 @@ VALUES(1,'Nieokreślony');
 INSERT INTO "SubCategory"
 VALUES(1,'Szef');
 ```
-##
-testowanie
-nalezy przejsc do katalogu BlazorWASMWebApplication.RESTApi
-i uruchimic serwer Api Rest z dostepem do danych za pomoca polecenia
-##
+## testowanie nalezy przejsc do katalogu BlazorWASMWebApplication.RESTApi i uruchimic serwer Api Rest z dostepem do danych za pomoca polecenia
 
 ```
 dotnet run
 ```
 
-##
-i nastepne mozna uruchomic aplkacje webowa BlazorWASMWebApplication.Client
-##
+## i nastepne mozna uruchomic aplkacje webowa BlazorWASMWebApplication.Client
