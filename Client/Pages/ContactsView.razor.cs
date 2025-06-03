@@ -8,10 +8,11 @@ namespace BlazorWASMWebApplication.Client.Pages
 {
     public partial class ContactsView
     {
-        public IEnumerable<Contact> Contacts { get; set; }
 
         [Inject]
         public IContactService ContactService { get; set; }
+        public IEnumerable<Contact> Contacts { get; set; }
+        public Category Category { get; set; }
 
         public static IEnumerable<Contact> INITIALIZE_CONTACTS()
         {
@@ -50,6 +51,12 @@ namespace BlazorWASMWebApplication.Client.Pages
         protected async override Task OnInitializedAsync()
         {
             Contacts = await ContactService.Contacts();
+        }
+
+        public async void RefreshCategoryById(int id)
+        {
+            Category = await ContactService.Category(id);
+            InvokeAsync(StateHasChanged);
         }
     }
 }

@@ -6,5 +6,9 @@ namespace BlazorWASMWebApplication.Client.Services
     {
         Task<IEnumerable<Contact>> Contacts();
         Task<Contact> Contact(int id);
+        Task<IEnumerable<Category>> Categories();
+        Task<Category> Category(int id);
+        Task<IEnumerable<SubCategory>> SubCategories();
+        Task<SubCategory> SubCategory(int id, string name);
     }
 }

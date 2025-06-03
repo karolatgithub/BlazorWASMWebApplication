@@ -25,25 +25,13 @@ else
         <tbody>
             @foreach (var contact in Contacts)
             {
+                RefreshCategoryById(contact.CategoryId);
                 <tr>
-                    
                     <td>@contact.Name</td>
                     <td>@contact.Surname</td>
                     <td>@contact.Email</td>
                     <td>@contact.Phone</td>
-                    @if (contact.CategoryId == 1)
-                    {
-                        <td>
-                            Służbowy
-                        </td>
-                    }
-                    else
-                    {
-                        <td>
-                            Inny
-                        </td>
-                    }
-                    <td>@contact.SubCategory</td>
+                    <td>@Category.Name</td>
                     <td>
                         <a href="@($"contact/{contact.Id}")" class="btn btn-primary">
                             Details
