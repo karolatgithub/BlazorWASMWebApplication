@@ -482,3 +482,29 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+/BlazorWASMWebApplication.RESTApi/obj/BlazorWASMWebApplication.RESTApi.csproj.nuget.dgspec.json
+/BlazorWASMWebApplication.RESTApi/obj/project.assets.json
+/BlazorWASMWebApplication.RESTApi/obj/project.nuget.cache
+/Client/obj/Debug/net9.0/BlazorWASMWebApplication.Client.AssemblyInfo.cs
+/Client/obj/Debug/net9.0/BlazorWASMWebApplication.Client.AssemblyInfoInputs.cache
+/Client/obj/Debug/net9.0/BlazorWASMWebApplication.Client.assets.cache
+/Client/obj/Debug/net9.0/BlazorWASMWebApplication.Client.csproj.AssemblyReference.cache
+/Client/obj/Debug/net9.0/BlazorWASMWebApplication.Client.GeneratedMSBuildEditorConfig.editorconfig
+/Client/obj/Debug/net9.0/rpswa.dswa.cache.json
+/Client/obj/BlazorWASMWebApplication.Client.csproj.nuget.dgspec.json
+/Client/obj/project.assets.json
+/Client/obj/project.nuget.cache
+/BlazorWASMWebApplication.RESTApi/obj/Debug/net9.0/BlazorWASMWebApplication.RESTApi.AssemblyInfo.cs
+/BlazorWASMWebApplication.RESTApi/obj/Debug/net9.0/BlazorWASMWebApplication.RESTApi.AssemblyInfoInputs.cache
+/BlazorWASMWebApplication.RESTApi/obj/Debug/net9.0/BlazorWASMWebApplication.RESTApi.assets.cache
+/BlazorWASMWebApplication.RESTApi/obj/Debug/net9.0/BlazorWASMWebApplication.RESTApi.csproj.AssemblyReference.cache
+/BlazorWASMWebApplication.RESTApi/obj/Debug/net9.0/BlazorWASMWebApplication.RESTApi.GeneratedMSBuildEditorConfig.editorconfig
+/BlazorWASMWebApplication.RESTApi/obj/Debug/net9.0/rpswa.dswa.cache.json
+/Server/obj/Debug/net9.0/BlazorWASMWebApplication.Server.AssemblyInfo.cs
+/Server/obj/Debug/net9.0/BlazorWASMWebApplication.Server.AssemblyInfoInputs.cache
+/Server/obj/Debug/net9.0/BlazorWASMWebApplication.Server.csproj.AssemblyReference.cache
+/Server/obj/Debug/net9.0/BlazorWASMWebApplication.Server.GeneratedMSBuildEditorConfig.editorconfig
+/Server/obj/Debug/net9.0/rpswa.dswa.cache.json
+/Shared/obj/Debug/net9.0/BlazorWASMWebApplication.Shared.AssemblyInfo.cs
+/Shared/obj/Debug/net9.0/BlazorWASMWebApplication.Shared.AssemblyInfoInputs.cache
+/Shared/obj/Debug/net9.0/BlazorWASMWebApplication.Shared.GeneratedMSBuildEditorConfig.editorconfig
