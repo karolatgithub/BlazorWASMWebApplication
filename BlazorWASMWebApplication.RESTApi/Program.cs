@@ -24,7 +24,7 @@ app.UseCors(x => x
     .AllowAnyHeader()
     .SetIsOriginAllowed(origin => true) // allow any origin  
     .AllowCredentials());               // allow credentials 
-app.UseCors("Open");
+//app.UseCors("Open");
 app.MapControllers();
 
 app.Run();
