@@ -1,5 +1,7 @@
-﻿using BlazorWASMWebApplication.Shared.Model;
+﻿using BlazorWASMWebApplication.Client.Services;
+using BlazorWASMWebApplication.Shared.Model;
 using Microsoft.AspNetCore.Components;
+using System.Numerics;
 
 namespace BlazorWASMWebApplication.Client.Pages
 {
@@ -8,14 +10,17 @@ namespace BlazorWASMWebApplication.Client.Pages
         [Parameter]
         public string Id { get; set; }
 
+        [Inject]
+        public IContactService ContactService { get; set; }
+
         public Contact Contact { get; set; }
 
 
-        protected override Task OnInitializedAsync()
+        protected async override Task OnInitializedAsync()
         {
-            Console.WriteLine(Id);
-            Contact = ContactsView.INITIALIZE_CONTACTS().FirstOrDefault(contact=>contact.Id== Convert.ToInt32(Id));
-            return base.OnInitializedAsync();
+
+            Contact = await ContactService.Contact(Int32.Parse(Id));
+
         }
     }
 }
