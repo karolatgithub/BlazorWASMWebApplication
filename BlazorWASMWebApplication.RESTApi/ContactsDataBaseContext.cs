@@ -1,5 +1,6 @@
 ﻿using BlazorWASMWebApplication.Shared.Model;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata;
 using System.Xml;
 
 
@@ -40,6 +41,10 @@ public partial class ContactsDataBaseContext : DbContext
                 .HasMaxLength(9)
                 .IsUnicode(false);
         });
+
+        modelBuilder.Entity<Contact>().HasOne<Category>(s => s.Category);
+
+        modelBuilder.Entity<Category>().HasMany<SubCategory>(s => s.SubCategories);
 
         modelBuilder.Entity<SubCategory>()
         .HasKey(subCategory => new { subCategory.CategoryId, subCategory.Name });

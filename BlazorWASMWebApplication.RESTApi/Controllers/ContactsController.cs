@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using BlazorWASMWebApplication.Shared.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlazorWASMWebApplication.RESTApi.Controllers;
 
@@ -16,7 +17,7 @@ public class ContactsController : ControllerBase
     [HttpGet("contacts")]
     public IEnumerable<Contact> GetContacts()
     {
-        return contactsDataBaseContext.Contact.ToList<Contact>();
+        return contactsDataBaseContext.Contact.Include(c => c.Category).ToList<Contact>();
     }
 
     [HttpGet("contact/{id}")]
@@ -28,7 +29,7 @@ public class ContactsController : ControllerBase
     [HttpGet("categories")]
     public IEnumerable<Category> GetCategories()
     {
-        return contactsDataBaseContext.Category.ToList<Category>();
+        return contactsDataBaseContext.Category.Include(c=>c.SubCategories).ToList<Category>();
     }
 
     [HttpGet("category/{id}")]

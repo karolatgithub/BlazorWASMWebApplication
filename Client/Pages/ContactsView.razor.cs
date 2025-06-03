@@ -52,11 +52,11 @@ namespace BlazorWASMWebApplication.Client.Pages
         {
             Contacts = await ContactService.Contacts();
         }
-
+        /*
         public async void RefreshCategoryById(int id)
         {
             Category = await ContactService.Category(id);
             InvokeAsync(StateHasChanged);
-        }
+        }*/
     }
 }
