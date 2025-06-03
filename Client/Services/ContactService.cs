@@ -22,14 +22,8 @@ namespace BlazorWASMWebApplication.Client.Services
 
         public async Task<IEnumerable<Contact>> Contacts()
         {
-
-            var response = await httpClient.GetAsync($"api/contact");
-            response.EnsureSuccessStatusCode();
-            string responseBody = await response.Content.ReadAsStringAsync();
             return JsonSerializer.Deserialize<IEnumerable<Contact>>
-                                (responseBody, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
-
-
+                                ((await (await httpClient.GetAsync($"api/contact")).Content.ReadAsStringAsync()), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
     }
 }

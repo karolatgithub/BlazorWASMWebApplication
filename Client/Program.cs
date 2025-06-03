@@ -10,13 +10,10 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddTransient<IContactService, ContactService>();
-//builder.Services.AddTransient<HttpClient>();
 
-//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri//(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddHttpClient<IContactService, ContactService>(c =>
 {
     c.BaseAddress = new Uri("http://localhost:8888");
 });
-//builder.Services.AddHttpClient();
 
 await builder.Build().RunAsync();
