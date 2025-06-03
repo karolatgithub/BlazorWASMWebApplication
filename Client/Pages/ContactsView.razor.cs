@@ -10,8 +10,6 @@ namespace BlazorWASMWebApplication.Client.Pages
     {
         public IEnumerable<Contact> Contacts { get; set; }
 
-        //[Inject]
-        //private HttpClient httpClient { get; set; }
         [Inject]
         public IContactService ContactService { get; set; }
 
@@ -51,21 +49,7 @@ namespace BlazorWASMWebApplication.Client.Pages
 
         protected async override Task OnInitializedAsync()
         {
-            Console.WriteLine(10);
             Contacts = await ContactService.Contacts();
-            /*
-            try
-            {
-                await httpClient.PostAsJsonAsync<IEnumerable<Contact>>("http://localhost:8888/api/contact", Contacts);
-                Console.WriteLine("ile="+Contacts.Count());
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("err=>" + ex.Message);
-            }
-            Console.WriteLine(11);
-            */
-
         }
     }
 }
