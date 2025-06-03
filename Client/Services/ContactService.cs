@@ -8,7 +8,6 @@ namespace BlazorWASMWebApplication.Client.Services
 {
     public class ContactService : IContactService
     {
-        //[Inject]
         private readonly HttpClient httpClient;
         public ContactService(HttpClient httpClient)
         {
