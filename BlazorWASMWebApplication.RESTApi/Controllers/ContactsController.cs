@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using BlazorWASMWebApplication.Shared.Model;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace BlazorWASMWebApplication.RESTApi.Controllers;
 
@@ -29,7 +30,7 @@ public class ContactsController : ControllerBase
     [HttpGet("categories")]
     public IEnumerable<Category> GetCategories()
     {
-        return contactsDataBaseContext.Category.Include(c=>c.SubCategories).ToList<Category>();
+        return contactsDataBaseContext.Category.Include(c => c.SubCategories).ToList<Category>();
     }
 
     [HttpGet("category/{id}")]
@@ -47,5 +48,35 @@ public class ContactsController : ControllerBase
     public SubCategory GetSubCategory(int id, string name)
     {
         return contactsDataBaseContext.SubCategory.Find(id, name);
+    }
+
+
+    [HttpPut("contact")]
+    public Contact SaveContact([FromBody] Contact contact)
+    {
+        if (contact.Id == null)
+        {
+            contactsDataBaseContext.Add(contact).State = EntityState.Added;
+        }
+        else
+        {
+            contactsDataBaseContext.Entry(contact).State = EntityState.Modified;
+        }
+        try
+        {
+            contactsDataBaseContext.SaveChanges();
+        }
+        catch (DbUpdateConcurrencyException ex)
+        {
+            if (contactsDataBaseContext.Contact.FirstOrDefaultAsync(c => c.Id == contact.Id) == null)
+            {
+                throw new EntryPointNotFoundException("Contact:id=" + contact.Id);
+            }
+            else
+            {
+                throw;
+            }
+        }
+        return contact;
     }
 }

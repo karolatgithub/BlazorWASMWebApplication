@@ -2,7 +2,9 @@
 using BlazorWASMWebApplication.Shared.Model;
 using Microsoft.AspNetCore.Components;
 using System.Net.Http;
+using System.Text;
 using System.Text.Json;
+using System.Xml.Linq;
 
 namespace BlazorWASMWebApplication.Client.Services
 {
@@ -48,6 +50,13 @@ namespace BlazorWASMWebApplication.Client.Services
         {
             return JsonSerializer.Deserialize<SubCategory>
                                 ((await (await httpClient.GetAsync($"api/contacts/subcategory/{id}/{name}")).Content.ReadAsStringAsync()), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+        }
+
+        public async Task<Contact> SaveContact(Contact contact)
+        {
+            return JsonSerializer.Deserialize<Contact>
+            ((await (await httpClient.PutAsync($"api/contacts/contact", new StringContent(JsonSerializer.Serialize(contact), Encoding.UTF8, "application/json"))).Content.ReadAsStringAsync())
+                , new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
     }
 }

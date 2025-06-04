@@ -5,7 +5,7 @@ namespace BlazorWASMWebApplication.Shared.Model
     public class Contact
     {
         [Key]
-        public int Id { get; set; }
+        public virtual int? Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
@@ -19,6 +19,6 @@ namespace BlazorWASMWebApplication.Shared.Model
         [Required]
         public int CategoryId { get; set; }
         public string SubCategory { get; set; }
-        public Category Category { get; set; }
+        public virtual Category? Category { get; set; }
     }
 }

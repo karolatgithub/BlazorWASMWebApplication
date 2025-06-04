@@ -10,5 +10,6 @@ namespace BlazorWASMWebApplication.Client.Services
         Task<Category> Category(int id);
         Task<IEnumerable<SubCategory>> SubCategories();
         Task<SubCategory> SubCategory(int id, string name);
+        Task<Contact> SaveContact(Contact contact);
     }
 }
