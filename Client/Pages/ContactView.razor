@@ -1,57 +1,61 @@
 ﻿@page "/contact/{Id}"
-@if (@Id != "1")
-{
-    <h1>Contact [Id=@Id] details</h1>
-}
-else
+@if (@Id.Equals("0"))
 {
     <h1>New Contact details</h1>
 }
-@if (Contact == null)
+else
+{
+    <h1>Contact [Id=@Id] details</h1>
+}
+@if (Contact == null || Categories == null)
 {
     <p>Loading ...</p>
 }
 else
 {
     <div class="row">
-        <div-- class="col-md-12">
+        <div class="col-md-12">
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Name</label>
+                <label for="Name" class="col-sm-4 col-form-label">Name</label>
                 <div class="col-sm-8">
-                    <label type="text" readonly class="form-control-plaintext">@Contact.Name</label>
+                    <InputText id="Name" @bind-Value="@Contact.Name" class="form-control" />
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Surname</label>
+                <label for="Surname" class="col-sm-4 col-form-label">Surname</label>
                 <div class="col-sm-8">
-                    <label type="text" readonly class="form-control-plaintext">@Contact.Surname</label>
+                    <InputText id="Surname" @bind-Value="@Contact.Surname" class="form-control" />
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Email</label>
+                <label for="Email" class="col-sm-4 col-form-label">Email</label>
                 <div class="col-sm-8">
-                    <label type="text" readonly class="form-control-plaintext">@Contact.Email</label>
+                    <InputText id="Email" @bind-Value="@Contact.Email" class="form-control" />
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Password</label>
+                <label for="Password" class="col-sm-4 col-form-label">Password</label>
                 <div class="col-sm-8">
-                    <label type="text" readonly class="form-control-plaintext">@Contact.Password</label>
+                    <InputText id="Password" @bind-Value="@Contact.Password" class="form-control" />
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Phone</label>
+                <label for="Phone" class="col-sm-4 col-form-label">Phone</label>
                 <div class="col-sm-8">
-                    <label type="text" readonly class="form-control-plaintext">@Contact.Phone</label>
+
+                    <InputText id="Phone" @bind-Value="@Contact.Phone" class="form-control" />
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Category</label>
-                <!--div class="col-sm-8">
-                    <label type="text" readonly class="form-control-plaintext">@Contact.CategoryId</label>
-                <div-->
+                <label for="BirthDate" class="col-sm-4 col-form-label">BirthDate</label>
                 <div class="col-sm-8">
-                    <InputSelect id="category" @bind-Value="Contact.CategoryId" class="form-control" disabled=@Id.Equals("1")>
+                    <InputDate id="BirthDate" @bind-Value="@Contact.BirthDate" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="CategoryId" class="col-sm-4 col-form-label">Category</label>
+                <div class="col-sm-8">
+                    <InputSelect id="CategoryId" @bind-Value="Contact.CategoryId" @bind-Value:after='() => { Contact.SubCategory = null; }' class=" form-control">
                         @foreach (var category in Categories)
                         {
                             <option value="@category.Id">@category.Name</option>
@@ -60,11 +64,26 @@ else
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label">SubCategory</label>
-                <div class="col-sm-8">
-                    <label type="text" readonly class="form-control-plaintext">@Contact.SubCategory</label>
-                </div>
+                @if (@Contact.CategoryId == 3)
+                {
+                    <label for="SubCategory" class="col-sm-4 col-form-label">SubCategory1</label>
+                    <div class="col-sm-8">
+                        <InputText id="SubCategory" @bind-Value="@Contact.SubCategory" class="form-control" />
+                    </div>
+                }
+                else
+                {
+                    <label for="SubCategory" class="col-sm-4 col-form-label">SubCategory2</label>
+                    <div class="col-sm-8">
+                        <InputSelect id="SubCategory" @bind-Value="Contact.SubCategory" class="form-control">
+                            @foreach (var subCategory in Categories.First(c => c.Id == Contact.CategoryId).SubCategories)
+                            {
+                                <option value="@subCategory.Name">@subCategory.Name</option>
+                            }
+                        </InputSelect>
+                    </div>
+                }
             </div>
+        </div>
     </div>
-                </div>
 }

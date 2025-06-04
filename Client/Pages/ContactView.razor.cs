@@ -17,8 +17,16 @@ namespace BlazorWASMWebApplication.Client.Pages
 
         protected async override Task OnInitializedAsync()
         {
-            Contact = await ContactService.Contact(Int32.Parse(Id));
             Categories = await ContactService.Categories();
+            if (Id.Equals("0"))
+            {
+                Contact = new Contact() { CategoryId = 3,BirthDate= DateOnly.FromDateTime(DateTime.Now) };
+            }
+            else
+            {
+                Contact = await ContactService.Contact(Int32.Parse(Id));
+            }
+
         }
     }
 }

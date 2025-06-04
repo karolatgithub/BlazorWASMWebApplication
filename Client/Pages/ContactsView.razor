@@ -19,7 +19,11 @@ else
                 <td>Phone</td>
                 <td>Category</td>
                 <td>Subcategory</td>
-                <td></td>
+                <td>
+                    <a href="@($"contact/{0}")" class="btn btn-primary">
+                        New
+                    </a>
+                </td>
             </tr>
         </thead>
         <tbody>
@@ -34,7 +38,7 @@ else
                     <td>@contact.SubCategory</td>
                     <td>
                         <a href="@($"contact/{contact.Id}")" class="btn btn-primary">
-                            Details
+                            Edit
                         </a>
                     </td>
                 </tr>
