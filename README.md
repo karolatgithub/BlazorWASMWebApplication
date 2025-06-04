@@ -61,6 +61,11 @@ INSERT INTO "SubCategory"
 VALUES(1,'Szef');
 ```
 
+```
+SELECT setval('"Contact_Id_seq"', (SELECT MAX("Id") FROM "Contact"));
+SELECT setval('"Category_Id_seq"', (SELECT MAX("Id") FROM "Category"));
+```
+
 ## testowanie nalezy przejsc do katalogu BlazorWASMWebApplication.RESTApi i uruchimic serwer Api Rest z dostepem do danych za pomoca polecenia
 
 ```
