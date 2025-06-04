@@ -6,7 +6,8 @@
 dotnet new blazorwasm --hosted -o BlazorWASMWebApplication
 ```
 
-## utworzenie bazy danych postgresql i uruchomienie na porcie 5432 na lokalnej maszynie
+## utworzenie bazy danych postgresql
+### uruchomić na porcie 5432 na lokalnej maszynie
 
 ```
 SET SEARCH_PATH TO public;
@@ -66,10 +67,12 @@ SELECT setval('"Contact_Id_seq"', (SELECT MAX("Id") FROM "Contact"));
 SELECT setval('"Category_Id_seq"', (SELECT MAX("Id") FROM "Category"));
 ```
 
-## testowanie nalezy przejsc do katalogu BlazorWASMWebApplication.RESTApi i uruchimic serwer Api Rest z dostepem do danych za pomoca polecenia
+## testowanie
+
+### nalezy przejsc do katalogu BlazorWASMWebApplication.RESTApi i uruchomic serwer Api Rest z dostepem do danych za pomoca polecenia:
 
 ```
 dotnet run
 ```
 
-## i nastepne mozna uruchomic aplikacje webowa BlazorWASMWebApplication.Client
+### i nastepne mozna uruchomic aplikacje webowa BlazorWASMWebApplication.Client w Visual Studio
