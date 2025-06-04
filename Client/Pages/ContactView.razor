@@ -1,5 +1,12 @@
 ﻿@page "/contact/{Id}"
-<h1>Contact [Id=@Id] details</h1>
+@if (@Id != "1")
+{
+    <h1>Contact [Id=@Id] details</h1>
+}
+else
+{
+    <h1>New Contact details</h1>
+}
 @if (Contact == null)
 {
     <p>Loading ...</p>
@@ -44,7 +51,7 @@ else
                     <label type="text" readonly class="form-control-plaintext">@Contact.CategoryId</label>
                 <div-->
                 <div class="col-sm-8">
-                    <InputSelect id="category" @bind-Value="Contact.CategoryId" class="form-control" disabled="true">
+                    <InputSelect id="category" @bind-Value="Contact.CategoryId" class="form-control" disabled=@Id.Equals("1")>
                         @foreach (var category in Categories)
                         {
                             <option value="@category.Id">@category.Name</option>
@@ -59,5 +66,5 @@ else
                 </div>
             </div>
     </div>
-            </div>
+                </div>
 }
