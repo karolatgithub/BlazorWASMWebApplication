@@ -42,7 +42,6 @@ else
             <div class="form-group row">
                 <label for="Phone" class="col-sm-4 col-form-label">Phone</label>
                 <div class="col-sm-8">
-
                     <InputText id="Phone" @bind-Value="@Contact.Phone" class="form-control" />
                 </div>
             </div>
@@ -66,14 +65,14 @@ else
             <div class="form-group row">
                 @if (@Contact.CategoryId == 3)
                 {
-                    <label for="SubCategory" class="col-sm-4 col-form-label">SubCategory1</label>
+                    <label for="SubCategory" class="col-sm-4 col-form-label">SubCategory</label>
                     <div class="col-sm-8">
                         <InputText id="SubCategory" @bind-Value="@Contact.SubCategory" class="form-control" />
                     </div>
                 }
                 else
                 {
-                    <label for="SubCategory" class="col-sm-4 col-form-label">SubCategory2</label>
+                    <label for="SubCategory" class="col-sm-4 col-form-label">SubCategory</label>
                     <div class="col-sm-8">
                         <InputSelect id="SubCategory" @bind-Value="Contact.SubCategory" class="form-control">
                             @foreach (var subCategory in Categories.First(c => c.Id == Contact.CategoryId).SubCategories)

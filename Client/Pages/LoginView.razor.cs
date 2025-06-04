@@ -1,20 +1,22 @@
 ﻿using BlazorWASMWebApplication.Client.Services;
 using BlazorWASMWebApplication.Shared.Model;
 using Microsoft.AspNetCore.Components;
+using System.Transactions;
 
 namespace BlazorWASMWebApplication.Client.Pages
 {
-    public partial class ContactsView
+    public partial class LoginView
     {
-        [Parameter]
-        public string? Editable { get; set; }
         [Inject]
         public IContactService ContactService { get; set; }
-        public IEnumerable<Contact> Contacts { get; set; }
-
+        [Inject]
+        NavigationManager NavigationManager { get; set; }
+        private string? Email;
+        private string? Password;
+        public bool NotLogged { get; set; } = true;
         protected async override Task OnInitializedAsync()
         {
-            Contacts = await ContactService.Contacts();
+            NotLogged = true;
         }
     }
 }

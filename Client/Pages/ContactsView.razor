@@ -1,4 +1,4 @@
-﻿@page "/contacts"
+﻿@page "/contacts/{Editable}"
 <h1 class="page-title">Contacts</h1>
 
 <!-- the check here rely on the 2 way binding which will automatically detecht
@@ -20,9 +20,18 @@ else
                 <td>Category</td>
                 <td>Subcategory</td>
                 <td>
-                    <a href="@($"contact/{0}")" class="btn btn-primary">
-                        New
-                    </a>
+                    @if (!Convert.ToBoolean(@Editable))
+                    {
+                        <a href="@($"login")" class="btn btn-primary">
+                            Login
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="@($"contact/{0}")" class="btn btn-primary">
+                            New
+                        </a>
+                    }
                 </td>
             </tr>
         </thead>
@@ -37,9 +46,12 @@ else
                     <td>@contact.Category.Name</td>
                     <td>@contact.SubCategory</td>
                     <td>
-                        <a href="@($"contact/{contact.Id}")" class="btn btn-primary">
-                            Edit
-                        </a>
+                        @if (Convert.ToBoolean(@Editable))
+                        {
+                            <a href="@($"contact/{contact.Id}")" class="btn btn-primary">
+                                Edit
+                            </a>
+                        }
                     </td>
                 </tr>
             }
