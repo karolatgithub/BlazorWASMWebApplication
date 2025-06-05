@@ -86,13 +86,14 @@ public class ContactsController : ControllerBase
     {
         foreach (Contact contact in contactsDataBaseContext.Contact.ToList<Contact>())
         {
-            contact.Password = Utils.ENCODE_PASSWORD_TO_BASE_64(contact.Password);
+            contact.Password = Utils.ENCODE_TOKEN_TO_BASE_64(contact.Password);
             SaveContact(contact);
         }
     }
-    [HttpGet("password_is_valid/{email}/{token}")]
-    public bool PaswordIsValid(string email, string token)
+    [HttpGet("token_is_valid/{token}")]
+    public bool TokenIsValid(string token)
     {
-        return contactsDataBaseContext.Contact.FirstOrDefault(c => email == c.Email && token == c.Password) != null;
+        Token Token = Token.DECODE_FROM_BASE_64(token, 10);
+        return contactsDataBaseContext.Contact.FirstOrDefault(c => Token.Login == c.Email && Token.Password == c.Password) != null;
     }
 }

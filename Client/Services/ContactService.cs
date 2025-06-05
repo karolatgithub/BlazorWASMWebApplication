@@ -59,9 +59,9 @@ namespace BlazorWASMWebApplication.Client.Services
                 , new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
 
-        public async Task<bool> PaswordIsValid(string email, string token)
+        public async Task<bool> TokenIsValid(string token)
         {
-            return Boolean.Parse(await (await httpClient.GetAsync($"api/contacts/password_is_valid/{email}/{token}")).Content.ReadAsStringAsync());
+            return Boolean.Parse(await (await httpClient.GetAsync($"api/contacts/token_is_valid/{token}")).Content.ReadAsStringAsync());
         }
     }
 }

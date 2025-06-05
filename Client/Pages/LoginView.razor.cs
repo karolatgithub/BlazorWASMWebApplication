@@ -1,6 +1,7 @@
 ﻿using Blazored.LocalStorage;
 using BlazorWASMWebApplication.Client.Services;
 using BlazorWASMWebApplication.Shared;
+using BlazorWASMWebApplication.Shared.Model;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 
@@ -24,7 +25,7 @@ namespace BlazorWASMWebApplication.Client.Pages
         }
         async Task CheckPassword()
         {
-            NotLogged = !(await ContactService.PaswordIsValid(Email, Utils.ENCODE_PASSWORD_TO_BASE_64(Password)));
+            NotLogged = !(await ContactService.TokenIsValid(new Token(Email, Utils.ENCODE_TOKEN_TO_BASE_64(Password)).EncodeToBase64()));
             if (NotLogged)
             {
                 await ProtectedStorage.RemoveItemAsync("Editable");
