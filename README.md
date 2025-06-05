@@ -1,6 +1,6 @@
 # BlazorWASMWebApplication
 
-## aplikacja webowa Single Page Application uzywajaca uslug Rest do zarzadzania lista kontaktow aby wejsc w edycje nalezy sie zalogowac, tryb edycji mozliwy w ciagu 10 minut, po tym czasie trzeba sie poniwnie zalogowac
+## aplikacja webowa Single Page Application uzywajaca uslug Rest do zarzadzania lista kontaktow aby wejsc w edycje nalezy sie zalogowac, tryb edycji mozliwy w ciagu 10 minut, po tym czasie trzeba sie ponownie zalogowac
 
 ## haslo jest przesylane po sieci w tokenie waznym przez +/-10 sekund
 
