@@ -1,11 +1,8 @@
-﻿using BlazorWASMWebApplication.Client.Services;
+﻿using Blazored.LocalStorage;
+using BlazorWASMWebApplication.Client.Services;
 using BlazorWASMWebApplication.Shared;
-using BlazorWASMWebApplication.Shared.Model;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
-using System.Security.Principal;
-using System.Transactions;
-using static System.Net.WebRequestMethods;
 
 namespace BlazorWASMWebApplication.Client.Pages
 {
@@ -15,7 +12,8 @@ namespace BlazorWASMWebApplication.Client.Pages
         public IContactService ContactService { get; set; }
         [Inject]
         NavigationManager NavigationManager { get; set; }
-
+        [Inject]
+        ILocalStorageService ProtectedStorage { get; set; }
         public EditContext ViewContext { get; set; }
         private string? Email;
         private string? Password;
@@ -27,6 +25,14 @@ namespace BlazorWASMWebApplication.Client.Pages
         async Task CheckPassword()
         {
             NotLogged = !(await ContactService.PaswordIsValid(Email, Utils.ENCODE_PASSWORD_TO_BASE_64(Password)));
+            if (NotLogged)
+            {
+                await ProtectedStorage.RemoveItemAsync("Editable");
+            }
+            else
+            {
+                await ProtectedStorage.SetItemAsStringAsync("Editable", "true");
+            }
             ViewContext.NotifyValidationStateChanged();
         }
     }

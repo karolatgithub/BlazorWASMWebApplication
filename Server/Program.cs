@@ -1,5 +1,6 @@
 using BlazorWASMWebApplication.Shared.Model;
 using Microsoft.AspNetCore.ResponseCompression;
+using MT.Blazor.ProtectedStorage;
 
 var builder = WebApplication.CreateBuilder(args);
 
