@@ -83,7 +83,7 @@ dotnet run
 
 ### gdy w konsoli wyswietli sie na jakim porcie dziala aplikacja:
 
-'''
+```
 ...
 ...
 info: Microsoft.Hosting.Lifetime[14]
@@ -94,13 +94,13 @@ info: Microsoft.Hosting.Lifetime[0]
       Hosting environment: Development
 info: Microsoft.Hosting.Lifetime[0]
       Content root path: c:\Users\Karol Kowalczyk\source\repos\BlazorWASMWebApplication\Client
-'''
+```
 
 ### nalezy w przegladarce wkleic powyzszy url;
 
-'''
+```
 http://localhost:5059
-'''
+```
 
 ### ... i powinna wyswietlic sie strona startowa aplikacji
 
