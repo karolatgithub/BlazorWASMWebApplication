@@ -12,6 +12,7 @@ namespace BlazorWASMWebApplication.Shared.Model
         public string Surname { get; set; }
         [Required]
         public string Email { get; set; }
+        [Required]
         public string Password { get; set; }
         public string Phone { get; set; }
         [Required]

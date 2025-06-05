@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using BlazorWASMWebApplication.Shared.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http.HttpResults;
+using BlazorWASMWebApplication.Shared;
 
 namespace BlazorWASMWebApplication.RESTApi.Controllers;
 
@@ -78,5 +79,20 @@ public class ContactsController : ControllerBase
             }
         }
         return contact;
+    }
+
+    [HttpGet("hash_passwords")]
+    public void HashPasswords()
+    {
+        foreach (Contact contact in contactsDataBaseContext.Contact.ToList<Contact>())
+        {
+            contact.Password = Utils.ENCODE_PASSWORD_TO_BASE_64(contact.Password);
+            SaveContact(contact);
+        }
+    }
+    [HttpGet("password_is_valid/{email}/{token}")]
+    public bool PaswordIsValid(string email, string token)
+    {
+        return contactsDataBaseContext.Contact.FirstOrDefault(c => email == c.Email && token == c.Password) != null;
     }
 }

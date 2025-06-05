@@ -11,5 +11,6 @@ namespace BlazorWASMWebApplication.Client.Services
         Task<IEnumerable<SubCategory>> SubCategories();
         Task<SubCategory> SubCategory(int id, string name);
         Task<Contact> SaveContact(Contact contact);
+        Task<bool> PaswordIsValid(string email, string token);
     }
 }

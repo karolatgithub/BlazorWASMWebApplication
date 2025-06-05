@@ -47,7 +47,7 @@ CREATE TABLE "Contact" (
 
 ```
 INSERT INTO "Contact"
-VALUES(1,'Karol','Kowalczyk','karol@wp.pl','1234','123123123','1970-01-01',1,'Służbowy');
+VALUES(1,'Karol','Kowalczyk','karol@wp.pl','QWxhITEyMzQx','123123123','1970-01-01',1,'Służbowy');
 INSERT INTO "Category"
 VALUES(1,'Służbowy');
 INSERT INTO "Category"
@@ -75,4 +75,38 @@ SELECT setval('"Category_Id_seq"', (SELECT MAX("Id") FROM "Category"));
 dotnet run
 ```
 
-### i nastepne mozna uruchomic aplikacje webowa BlazorWASMWebApplication.Client w Visual Studio
+### i nastepne mozna uruchomic aplikacje webowa BlazorWASMWebApplication.Client w Visual Studio lub z linii polecen bedac w katalogu Client:
+
+```
+dotnet run
+```
+
+### gdy w konsoli wyswietli sie na jakim porcie dziala aplikacja:
+
+'''
+...
+...
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5059
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: c:\Users\Karol Kowalczyk\source\repos\BlazorWASMWebApplication\Client
+'''
+
+### nalezy w przegladarce wkleic powyzszy url;
+
+'''
+http://localhost:5059
+'''
+
+### ... i powinna wyswietlic sie strona startowa aplikacji
+
+## masowe hashowanie hasel w kontaktach
+### nalezy w przegladarce wywolac url:
+
+```
+http://localhost:8888/api/contacts/hash_passwords
+```

@@ -58,5 +58,10 @@ namespace BlazorWASMWebApplication.Client.Services
             ((await (await httpClient.PutAsync($"api/contacts/contact", new StringContent(JsonSerializer.Serialize(contact), Encoding.UTF8, "application/json"))).Content.ReadAsStringAsync())
                 , new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
+
+        public async Task<bool> PaswordIsValid(string email, string token)
+        {
+            return Boolean.Parse(await (await httpClient.GetAsync($"api/contacts/password_is_valid/{email}/{token}")).Content.ReadAsStringAsync());
+        }
     }
 }

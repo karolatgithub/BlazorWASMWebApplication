@@ -1,4 +1,5 @@
 ﻿@page "/contact/{Id}"
+@using BlazorWASMWebApplication.Shared
 @if (@Id.Equals("0"))
 {
     <h1>New Contact details</h1>
@@ -34,9 +35,9 @@ else
                 </div>
             </div>
             <div class="form-group row">
-                <label for="Password" class="col-sm-4 col-form-label">Password</label>
+                <label for="Password" type="password" class="col-sm-4 col-form-label">Password</label>
                 <div class="col-sm-8">
-                    <InputText id="Password" @bind-Value="@Contact.Password" class="form-control" />
+                    <InputText id="Password" @bind-Value="@Contact.Password" @bind-Value:after='() => { Contact.Password=Utils.ENCODE_PASSWORD_TO_BASE_64(Contact.Password); }' class="form-control" />
                 </div>
             </div>
             <div class="form-group row">
