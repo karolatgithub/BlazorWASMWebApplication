@@ -32,7 +32,7 @@ namespace BlazorWASMWebApplication.Client.Pages
             }
             else
             {
-                await ProtectedStorage.SetItemAsStringAsync("Editable", "true");
+                await ProtectedStorage.SetItemAsStringAsync("Editable", DateTime.Now.AddMinutes(10).ToString(Utils.DATE_TIME_TO_STRING_FORMAT));
             }
             ViewContext.NotifyValidationStateChanged();
         }

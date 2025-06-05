@@ -22,5 +22,7 @@
             utf8Decode.GetChars(todecode_byte, 0, todecode_byte.Length, decoded_char, 0);
             return new String(decoded_char);
         }
+
+        public static readonly string DATE_TIME_TO_STRING_FORMAT = "yyyy-MM-dd HH:mm:ss";
     }
 }

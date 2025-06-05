@@ -1,7 +1,9 @@
-﻿using BlazorWASMWebApplication.Client.Services;
+﻿using Blazored.LocalStorage;
+using BlazorWASMWebApplication.Client.Services;
+using BlazorWASMWebApplication.Shared;
 using BlazorWASMWebApplication.Shared.Model;
 using Microsoft.AspNetCore.Components;
-using Blazored.LocalStorage;
+using System.Globalization;
 
 namespace BlazorWASMWebApplication.Client.Pages
 {
@@ -16,7 +18,22 @@ namespace BlazorWASMWebApplication.Client.Pages
 
         protected async override Task OnInitializedAsync()
         {
-            Editable = await ProtectedStorage.ContainKeyAsync("Editable");
+            Editable = false;
+            try
+            {
+                if (DateTime.ParseExact(await ProtectedStorage.GetItemAsStringAsync("Editable"), Utils.DATE_TIME_TO_STRING_FORMAT, CultureInfo.InvariantCulture) >= DateTime.Now)
+                {
+                    Editable = true;
+                }
+            }
+            catch (Exception) { }
+            finally
+            {
+                if (!Editable)
+                {
+                    await ProtectedStorage.RemoveItemAsync("Editable");
+                }
+            }
             Contacts = await ContactService.Contacts();
         }
     }
