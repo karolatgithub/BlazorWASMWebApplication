@@ -69,13 +69,13 @@ SELECT setval('"Category_Id_seq"', (SELECT MAX("Id") FROM "Category"));
 
 ## testowanie
 
-### nalezy przejsc do katalogu BlazorWASMWebApplication.RESTApi i uruchomic serwer Api Rest z dostepem do danych za pomoca polecenia:
+### nalezy przejsc do katalogu BlazorWASMWebApplication/RESTApi i uruchomic serwer Api Rest z dostepem do danych za pomoca polecenia:
 
 ```
 dotnet run
 ```
 
-### i nastepne mozna uruchomic aplikacje webowa BlazorWASMWebApplication.Client w Visual Studio lub z linii polecen bedac w katalogu Client:
+### i nastepnie mozna uruchomic aplikacje webowa BlazorWASMWebApplication.Client w Visual Studio klawiszem F5 o ile domyslna aplikacja jest BlazorWASMWebApplication.Client lub z linii polecen bedac w katalogu BlazorWASMWebApplication/Client:
 
 ```
 dotnet run
@@ -93,7 +93,7 @@ info: Microsoft.Hosting.Lifetime[0]
 info: Microsoft.Hosting.Lifetime[0]
       Hosting environment: Development
 info: Microsoft.Hosting.Lifetime[0]
-      Content root path: c:\Users\Karol Kowalczyk\source\repos\BlazorWASMWebApplication\Client
+      Content root path: *****\BlazorWASMWebApplication\Client
 ```
 
 ### nalezy w przegladarce wkleic powyzszy url;
