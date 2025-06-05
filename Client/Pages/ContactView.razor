@@ -37,7 +37,7 @@ else
             <div class="form-group row">
                 <label for="Password" type="password" class="col-sm-4 col-form-label">Password</label>
                 <div class="col-sm-8">
-                    <InputText id="Password" @bind-Value="@Contact.Password" @bind-Value:after='() => { Contact.Password=Utils.ENCODE_PASSWORD_TO_BASE_64(Contact.Password); }' class="form-control" />
+                    <InputText id="Password" @bind-Value="@Contact.Password" @bind-Value:after='() => { Contact.Password = Utils.ENCODE_PASSWORD_TO_BASE_64(Contact.Password); }' class="form-control" />
                 </div>
             </div>
             <div class="form-group row">
@@ -85,7 +85,11 @@ else
                 }
             </div>
             <div class="form-group row">
-                <Button Color="ButtonColor.Danger" @onclick="() => ContactService.SaveContact(Contact)">Save</Button>
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-8">
+                    <Button @onclick="() => ContactService.SaveContact(Contact)">Save</Button>
+                </div>
             </div>
         </div>
     </div>
