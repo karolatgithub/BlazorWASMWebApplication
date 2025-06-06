@@ -107,7 +107,7 @@ http://localhost:5059
 
 ### ... i powinna wyswietlic sie strona startowa aplikacji
 
-## Masowe hashowanie jawnych hasel bazie danych kontaktow
+## Masowe hashowanie jawnych hasel w bazie danych kontaktow
 ### Nalezy w przegladarce wywolac url:
 
 ```
