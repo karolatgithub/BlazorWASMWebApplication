@@ -1,17 +1,17 @@
 # BlazorWASMWebApplication
 
-## aplikacja webowa Single Page Application uzywajaca uslug Rest do zarzadzania lista kontaktow aby wejsc w edycje nalezy sie zalogowac, tryb edycji mozliwy w ciagu 10 minut, po tym czasie trzeba sie ponownie zalogowac
+## Aplikacja webowa Single Page Application uzywajaca uslug Rest do zarzadzania lista kontaktoow. Aby wejsc w edycje kontaktu, nalezy sie zalogowac. Tryb edycji mozliwy w ciagu 10 minut, po tym czasie trzeba sie ponownie zalogowac.
 
-## haslo jest przesylane po sieci w tokenie waznym przez +/-10 sekund
+## Haslo logowania jest przesylane po sieci w tokenie waznym przez +/-10 sekund
 
-## tworzenie projektu bedac w katalogu work
+## Tworzenie projektu bedac w katalogu work
 
 ```
 dotnet new blazorwasm --hosted -o BlazorWASMWebApplication
 ```
 
-## utworzenie bazy danych postgresql
-### uruchomić na porcie 5432 na lokalnej maszynie
+## Utworzenie bazy danych Postgresql
+### Baze danych Postgresql nalezy uruchomić na porcie 5432 na lokalnej maszynie
 
 ```
 SET SEARCH_PATH TO public;
@@ -71,24 +71,23 @@ SELECT setval('"Contact_Id_seq"', (SELECT MAX("Id") FROM "Contact"));
 SELECT setval('"Category_Id_seq"', (SELECT MAX("Id") FROM "Category"));
 ```
 
-## testowanie
+## Testowanie
 
-### nalezy przejsc do katalogu BlazorWASMWebApplication/RESTApi i uruchomic serwer Api Rest z dostepem do danych za pomoca polecenia:
-
-```
-dotnet run
-```
-
-### i nastepnie mozna uruchomic aplikacje webowa BlazorWASMWebApplication.Client w Visual Studio klawiszem F5 o ile domyslna aplikacja jest BlazorWASMWebApplication.Client lub z linii polecen bedac w katalogu BlazorWASMWebApplication/Client:
+### Nalezy przejsc do katalogu BlazorWASMWebApplication/RESTApi i uruchomic serwer Api Rest z dostepem do danych za pomoca polecenia:
 
 ```
 dotnet run
 ```
 
-### gdy w konsoli wyswietli sie na jakim porcie dziala aplikacja:
+### Nastepnie mozna uruchomic aplikacje webowa BlazorWASMWebApplication.Client w Visual Studio klawiszem F5 o ile domyslna jest aplikacja jest BlazorWASMWebApplication.Client lub z uruchomic z linii polecen bedac w katalogu BlazorWASMWebApplication/Client:
 
 ```
-...
+dotnet run
+```
+
+### Gdy w konsoli wyswietli sie na jakim porcie dziala aplikacja:
+
+```
 ...
 info: Microsoft.Hosting.Lifetime[14]
       Now listening on: http://localhost:5059
@@ -100,7 +99,7 @@ info: Microsoft.Hosting.Lifetime[0]
       Content root path: *****\BlazorWASMWebApplication\Client
 ```
 
-### nalezy w przegladarce wkleic powyzszy url;
+### Nalezy w przegladarce wkleic url:
 
 ```
 http://localhost:5059
@@ -108,8 +107,8 @@ http://localhost:5059
 
 ### ... i powinna wyswietlic sie strona startowa aplikacji
 
-## masowe hashowanie hasel w kontaktach
-### nalezy w przegladarce wywolac url:
+## Masowe hashowanie jawnych hasel bazie danych kontaktow
+### Nalezy w przegladarce wywolac url:
 
 ```
 http://localhost:8888/api/contacts/hash_passwords
