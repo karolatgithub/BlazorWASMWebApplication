@@ -79,7 +79,7 @@ SELECT setval('"Category_Id_seq"', (SELECT MAX("Id") FROM "Category"));
 dotnet run
 ```
 
-### Nastepnie mozna uruchomic aplikacje webowa BlazorWASMWebApplication.Client w Visual Studio klawiszem F5 o ile domyslna jest aplikacja jest BlazorWASMWebApplication.Client lub z uruchomic z linii polecen bedac w katalogu BlazorWASMWebApplication/Client:
+### Nastepnie mozna uruchomic aplikacje webowa BlazorWASMWebApplication.Client w Visual Studio klawiszem F5 o ile domyslna jest aplikacja jest BlazorWASMWebApplication.Client lub uruchomic z linii polecen bedac w katalogu BlazorWASMWebApplication/Client:
 
 ```
 dotnet run
